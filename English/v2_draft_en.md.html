@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>v2_draft_en</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: [],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    showMathMenu: false
+  });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); background-color: rgb(40, 44, 52); overflow: auto; }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(75, 83, 98); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); border-image: initial; background-color: rgb(58, 63, 75); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.0392157); border-radius: 3px; }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview del { text-decoration: none; position: relative; }
+.markdown-preview del::after { border-bottom: 1px solid black; content: ""; left: 0px; position: absolute; right: 0px; top: 50%; }
+.markdown-preview .flash { animation: flash 1s ease-out 1; outline: rgba(255, 0, 0, 0) solid 1px; }
+.markdown-preview .flash:not(li) { display: block; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: #282c34;
+  color: #abb2bf;
+}
+pre.editor-colors .line.cursor-line {
+  background-color: rgba(153, 187, 255, 0.04);
+}
+pre.editor-colors .invisible {
+  color: #abb2bf;
+}
+pre.editor-colors .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region {
+  background-color: #3e4451;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .indent-guide {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .wrap-guide {
+  background-color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .find-result .region.region.region,
+pre.editor-colors .current-result .region.region.region {
+  border-radius: 2px;
+  background-color: rgba(82, 139, 255, 0.24);
+  transition: border-color 0.4s;
+}
+pre.editor-colors .find-result .region.region.region {
+  border: 2px solid transparent;
+}
+pre.editor-colors .current-result .region.region.region {
+  border: 2px solid #528bff;
+  transition-duration: .1s;
+}
+pre.editor-colors .gutter .line-number {
+  color: #636d83;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  color: #abb2bf;
+  background-color: #2c313a;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right {
+  color: #abb2bf;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(224, 82, 82, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .fold-marker:after {
+  color: #abb2bf;
+}
+.syntax--comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #5c6370;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #e5c07b;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #98c379;
+}
+.syntax--keyword {
+  color: #c678dd;
+}
+.syntax--keyword.syntax--control {
+  color: #c678dd;
+}
+.syntax--keyword.syntax--operator {
+  color: #abb2bf;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #61afef;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #d19a66;
+}
+.syntax--storage {
+  color: #c678dd;
+}
+.syntax--storage.syntax--type.syntax--annotation,
+.syntax--storage.syntax--type.syntax--primitive {
+  color: #c678dd;
+}
+.syntax--storage.syntax--modifier.syntax--package,
+.syntax--storage.syntax--modifier.syntax--import {
+  color: #abb2bf;
+}
+.syntax--constant {
+  color: #d19a66;
+}
+.syntax--constant.syntax--variable {
+  color: #d19a66;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--numeric {
+  color: #d19a66;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #56b6c2;
+}
+.syntax--variable {
+  color: #e06c75;
+}
+.syntax--variable.syntax--interpolation {
+  color: #be5046;
+}
+.syntax--variable.syntax--parameter {
+  color: #abb2bf;
+}
+.syntax--string {
+  color: #98c379;
+}
+.syntax--string.syntax--regexp {
+  color: #56b6c2;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #e5c07b;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #e06c75;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #5c6370;
+}
+.syntax--punctuation.syntax--definition.syntax--method-parameters,
+.syntax--punctuation.syntax--definition.syntax--function-parameters,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--separator,
+.syntax--punctuation.syntax--definition.syntax--seperator,
+.syntax--punctuation.syntax--definition.syntax--array {
+  color: #abb2bf;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #61afef;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #e5c07b;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #be5046;
+}
+.syntax--punctuation.syntax--section.syntax--method,
+.syntax--punctuation.syntax--section.syntax--class,
+.syntax--punctuation.syntax--section.syntax--inner-class {
+  color: #abb2bf;
+}
+.syntax--support.syntax--class {
+  color: #e5c07b;
+}
+.syntax--support.syntax--type {
+  color: #56b6c2;
+}
+.syntax--support.syntax--function {
+  color: #56b6c2;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #e5c07b;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #e06c75;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #d19a66;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #61afef;
+}
+.syntax--meta.syntax--class {
+  color: #e5c07b;
+}
+.syntax--meta.syntax--class.syntax--body {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--method-call,
+.syntax--meta.syntax--method {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--definition.syntax--variable {
+  color: #e06c75;
+}
+.syntax--meta.syntax--link {
+  color: #d19a66;
+}
+.syntax--meta.syntax--require {
+  color: #61afef;
+}
+.syntax--meta.syntax--selector {
+  color: #c678dd;
+}
+.syntax--meta.syntax--separator {
+  background-color: #373b41;
+  color: #abb2bf;
+}
+.syntax--meta.syntax--tag {
+  color: #abb2bf;
+}
+.syntax--underline {
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #abb2bf;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #523d14 !important;
+  background-color: #e0c285 !important;
+}
+.syntax--invalid.syntax--illegal {
+  color: white !important;
+  background-color: #e05252 !important;
+}
+.syntax--markup.syntax--bold {
+  color: #d19a66;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #c678dd;
+}
+.syntax--markup.syntax--deleted {
+  color: #e06c75;
+}
+.syntax--markup.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #e06c75;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #61afef;
+}
+.syntax--markup.syntax--link {
+  color: #56b6c2;
+}
+.syntax--markup.syntax--inserted {
+  color: #98c379;
+}
+.syntax--markup.syntax--quote {
+  color: #d19a66;
+}
+.syntax--markup.syntax--raw {
+  color: #98c379;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cpp .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cs .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--css .syntax--property-name,
+.syntax--source.syntax--css .syntax--property-value {
+  color: #828997;
+}
+.syntax--source.syntax--css .syntax--property-name.syntax--support,
+.syntax--source.syntax--css .syntax--property-value.syntax--support {
+  color: #abb2bf;
+}
+.syntax--source.syntax--elixir .syntax--source.syntax--embedded.syntax--source {
+  color: #abb2bf;
+}
+.syntax--source.syntax--elixir .syntax--constant.syntax--language,
+.syntax--source.syntax--elixir .syntax--constant.syntax--numeric,
+.syntax--source.syntax--elixir .syntax--constant.syntax--definition {
+  color: #61afef;
+}
+.syntax--source.syntax--elixir .syntax--variable.syntax--definition,
+.syntax--source.syntax--elixir .syntax--variable.syntax--anonymous {
+  color: #c678dd;
+}
+.syntax--source.syntax--elixir .syntax--quoted {
+  color: #98c379;
+}
+.syntax--source.syntax--elixir .syntax--keyword.syntax--special-method,
+.syntax--source.syntax--elixir .syntax--embedded.syntax--section,
+.syntax--source.syntax--elixir .syntax--embedded.syntax--source.syntax--empty {
+  color: #e06c75;
+}
+.syntax--source.syntax--elixir .syntax--readwrite.syntax--module .syntax--punctuation {
+  color: #e06c75;
+}
+.syntax--source.syntax--elixir .syntax--regexp.syntax--section,
+.syntax--source.syntax--elixir .syntax--regexp.syntax--string {
+  color: #be5046;
+}
+.syntax--source.syntax--elixir .syntax--separator,
+.syntax--source.syntax--elixir .syntax--keyword.syntax--operator {
+  color: #d19a66;
+}
+.syntax--source.syntax--elixir .syntax--variable.syntax--constant {
+  color: #e5c07b;
+}
+.syntax--source.syntax--elixir .syntax--array,
+.syntax--source.syntax--elixir .syntax--scope,
+.syntax--source.syntax--elixir .syntax--section {
+  color: #828997;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--link .syntax--entity {
+  color: #61afef;
+}
+.syntax--source.syntax--go .syntax--storage.syntax--type.syntax--string {
+  color: #c678dd;
+}
+.syntax--source.syntax--ini .syntax--keyword.syntax--other.syntax--definition.syntax--ini {
+  color: #e06c75;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator.syntax--instanceof {
+  color: #c678dd;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair {
+  color: #e06c75;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair > .syntax--punctuation {
+  color: #abb2bf;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator {
+  color: #56b6c2;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--delete,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--in,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--of,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--instanceof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--typeof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--void {
+  color: #c678dd;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation.syntax--string {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation {
+  color: #98c379;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--constant.syntax--language.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--constant.syntax--language.syntax--json {
+  color: #56b6c2;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--other.syntax--symbol > .syntax--punctuation {
+  color: inherit;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical.syntax--python {
+  color: #c678dd;
+}
+.syntax--source.syntax--python .syntax--variable.syntax--parameter {
+  color: #d19a66;
+}
+</style>
+  </head>
+  <body class='markdown-preview'><h1>Dharma: A Generic Protocol for Tokenized Debt Issuance</h1>
+<p>Version 2.0.0</p>
+<p>Nadav Hollander – <a href="mailto:nadav@dharma.io">nadav@dharma.io</a><br>
+<i>B.S. in Computer Science – Stanford University ‘17</i><br></p>
+<h2>Abstract</h2>
+<h2>Table Of Contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#architecture">Architecture</a>
+<ol>
+<li><a href="#agents">Agents</a></li>
+<li><a href="#keepers">Keeper Marketplaces</a>
+<ol>
+<li><a href="#underwriters">Underwriters</a></li>
+<li><a href="#relayers">Relayers</a></li>
+</ol>
+</li>
+<li><a href="#contracts">Contracts</a></li>
+</ol>
+</li>
+<li><a href="#specification">Specification</a>
+<ol>
+<li><a href="#specification-overview">Overview</a></li>
+<li><a href="#message-types">Message Types</a>
+<ol>
+<li><a href="#debt-orders">Debt Orders</a></li>
+<li><a href="#debt-issuance-commitments">Debt Issuance Commitments</a></li>
+<li><a href="#broadcast-orders">0x Broadcast Orders</a></li>
+</ol>
+</li>
+<li><a href="#debt-issuance-process">Debt Issuance Process</a>
+<ol>
+<li><a href="#debtor-maker-orders">Debtor-Maker Orders</a></li>
+<li><a href="#creditor-maker-orders">Creditor-Maker Orders</a></li>
+<li><a href="#debt-order-handshake">Debt Order Handshake</a></li>
+</ol>
+</li>
+<li><a href="#debt-repayment-process">Debt Repayment Process</a>
+<ol>
+<li><a href="#terms-contract-interface">Terms Contract Interface</a></li>
+</ol>
+</li>
+<li><a href="#defaults-and-collections">Defaults and Collections</a></li>
+</ol>
+</li>
+<li><a href="#use-cases">Use Cases</a></li>
+<li><a href="#attacks-and-limitations">Attacks &amp; Limitations</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#appendix">Appendix</a></li>
+</ol>
+<h2>Introduction</h2>
+<blockquote>
+<p>Claim: An under-recognized advantage of blockchains is that they necessarily engender the creation
+of universal, permissionless standards for tokenized asset classes.</p>
+</blockquote>
+<p>Token sale crowd-funds have, as of the time of this paper’s writing, raised over $2B in 2017 alone.  If this proves anything, it is that there is clearly an under-satisfied market demand for crowd-sale offerings that compensate retail investors with assets that have equity-like<sup id="a1"><a href="#f1">1</a></sup>
+risk profiles.  Equity crowd-funding mechanisms, however, pre-date the ICO phenomenon significantly – so how does one explain the sudden burst of interest? If equity crowd-sales have been technically feasibly and in production for years, what aspect of the token sale ecosystem did Ethereum uniquely enable from a technological perspective?  I posit that the answer is jarringly simple: the ERC20 token standard created the common rails on top of which a diverse ecosystem of secondary markets for tokens could be built in a permission-less and interoperable manner.  Judged on investor liquidity alone, token crowd-sales are a step-function improvement over the status quo of equity fundraising.</p>
+<p>In the existing financial system, however, the sum total capital raised in equity fundraises is paltry in comparison to its big brother in the world of debt fundraising.  Debt markets, however, remain opaque and proprietary; executing a debt fundraise, be it in a public offering or to private investors, is as bespoke and inefficient as executing an equity fundraise is.  Consider the following: why not apply the token-sale model to debt fundraising?</p>
+<p>As a toy example, a corporation could, hypothetically, issue a bond as an “ICO for debt,” so to speak, and represent bond ownership with ERC20 tokens to be sold in a token crowd-fund.  Ostensibly, a world where debt assets were represented by a permission-less, universal token standard would, similarly, be a step-function improvement over the status quo in terms of liquidity and transparency.   In order for liquid secondary markets to crop up in a similarly permission-less manner, however, investors would need a standardized mechanism of pricing tokenized debt assets.  Whereas equity-like tokens are tied in value to branded protocols, projects, or entities, debt-like tokens are tied in value to empirical financial obligations from counter-parties that are often anonymized.  The ERC20 standard, therefore, falls short of capturing the obligatory semantics of a debt asset insofar as it does not provide a means of:</p>
+<ol>
+<li>Retrieving machine-readable debt-specific metadata (e.g. principal, interest rates) associated with the assets</li>
+<li>Retrieving a history of payments between debtors and creditors in a debt asset’s terms</li>
+<li>Pricing default risk into the debt asset’s value</li>
+</ol>
+<p><strong>Dharma protocol intends to bridge this gap and provide a permission-less, generic mechanism by which debt assets of flexible type can be issued, sold, administered, and priced without having to rely on centralized data brokers of any kind.</strong></p>
+<h2>Architecture</h2>
+<p>Dharma protocol defines a procedure for issuing, funding, administering, and trading debt assets using a set of smart contracts, keeper marketplaces, and standardized interfaces elaborated on below.  Dharma heavily leverages the 0x decentralized exchange protocol<sup id="a2"><a href="#f2">2</a></sup>, using 0x Broadcast Order Messages as a fundamental primitive on top of which we construct Dharma Debt Orders, their analogous equivalent in Dharma protocol.  This mechanism will be explicitly formalized further in the paper.  The protocol is designed to support EVM blockchains, but could ostensibly be extended to support any blockchain with requisite generic smart contract functionality. First, we solidify some terminology.</p>
+<h3>Agents</h3>
+<p>We define agents as the end-consumers of the protocol – i.e. entities looking to borrow or lend crypto-assets.  Those entities, be they people, corporations, contracts, or automata, unsurprisingly fall into two categories:</p>
+<ol>
+<li><strong>Debtor</strong> - a party in a debt transaction who is borrowing an asset and owes a creditor some agreed upon value.</li>
+<li><strong>Creditor</strong> - a party in a debt transaction who is lending an asset is owed some agreed upon value by a debtor.</li>
+</ol>
+<h3>Keeper Marketplaces</h3>
+<p>We adopt the catchall term keepers<sup id="a3"><a href="#f3">3</a></sup> to encompass the utility players who provide value-added services to the network and compete in their respective marketplaces for compensatory fees.</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/dharma-assets/WhitepaperV2Architecture.png" alt=""></p>
+<ol>
+<li><strong>Underwriters</strong><sup id="a4"><a href="#f4">4</a></sup></li>
+</ol>
+<p>In traditional debt markets, underwriters are entities that collect fees for  administering the public issuance of debt and pricing borrower default risk into the asset.  In Dharma protocol, this definition is expanded and formalized. <strong>An underwriter is a <em>trusted</em> entity that collects market-determined fees for performing the following functions:</strong></p>
+<ul>
+<li>Originating a debt order from a borrower</li>
+<li>Determining and negotiating the terms of the debt (i.e. term length, interest, amortization) with the potential debtor</li>
+<li>Cryptographically committing to the likelihood they ascribe to that debt relationship ending in default (process described in detail under <a href="#specification">Specification</a>)</li>
+<li>Administering the debt order’s funding by forwarding it to any number of relayers.</li>
+<li>Servicing the debt – i.e. doing everything in the underwriter’s reasonable power to ensure timely repayment according to the agreed upon terms</li>
+<li>In the case of defaults or delinquencies, collecting on collateral (if debt is secured) or the individual’s assets via legal mechanisms and passing collected proceeds to investors</li>
+</ul>
+<p>This is not particularly out of band with what most online lenders do in their day-to-day underwriting and servicing operations.  We foresee Dharma protocol facilitating an alternative, cheaper route for aspiring online lending platforms to bootstrap their operations and earn similar margins as they would in the status quo by becoming an underwriter – all-the-while never holding balance sheet risk and avoiding the upfront time and capital costs associated with raising the requisite debt vehicles from traditional investors.</p>
+<blockquote>
+<p>Example: Alice has a novel thesis on how to originate, underwrite, and service loans to aspiring ZCash miners who need significant upfront capital to buy GPUs on bulk.  In lieu of knocking on the doors of traditional fixed-income investors, Alice decides to become an underwriter in Dharma protocol.  She obtains the necessary lending licenses, sets up a website advertising lending services for miners, and drums up hype in the ZCash community for her credit product.  When borrowers come to her site, their creditworthiness is automatically scored by Alice’s proprietary technology and they are presented with the terms of the loan, as determined by Alice.  Upon acceptance of the terms, Alice cryptographically attests to the borrower’s likelihood of default, forwards the signed debt order to a relayer, and, upon the loan’s funding, collects her desired fee.  The entire flow of funds is transparently auditable on-chain, and Alice’s competence in servicing and collecting on the debt can be empirically determined ex post facto.</p>
+</blockquote>
+<ol start="2">
+<li><strong>Relayers</strong></li>
+</ol>
+<p>Relayers in Dharma protocol perform an analogous function to relayers in the 0x Protocol – namely, relayers aggregate signed debt order messages and, for an agreed upon fee, host the messages in a centralized order book and provide retail investors with the ability to invest in the requested debt orders by filling the signed debt orders.  Note that, similarly to the 0x relaying mechanism, Dharma Protocol relayers need not hold any agent’s tokens – they simply provide a mechanism for creditors to browse through aggregated signed debt order messages, which creditors can use to trustlessly issue themselves debt tokens in exchange for the requested principal via client-side contract interactions (this mechanism is specified later in this paper).  The primary differences between relayers in Dharma protocol and 0x are:</p>
+<ol>
+<li>Dharma protocol relayers are not hosting a secondary market order book, but rather, an order book containing requests for debts that have yet to be issued</li>
+<li>Dharma protocol relayers provide creditors with signed debt-specific metadata associated with the debt order messages and their accompanying underwriter so that they can make informed investment decisions about the risk profile of a given debt order.</li>
+<li>Dharma protocol relayers do not freely allow any anonymous party to publish signed debt orders on to their order book, and use their discretion to only accept signed debt orders from known, trusted underwriters.</li>
+</ol>
+<blockquote>
+<p>Example: Bob wants to build a retail loan investor portal through which users can invest in a variety of debt assets – a Kayak for peer-to-peer loans, if you will.  Bob becomes a Dharma protocol relayer by setting up an online order book, building a retail investment platform, and allowing investors to browse through debt requests and examine associated data pertaining to the debtors’ credit worthiness and the identity of the backing underwriters.  Since Bob has seen that the empirical historical performance of Alice’s attested assets has been in line with her predictions and knows that Alice’s company is a publicly trusted and regulated entity, Bob allows Alice to broadcast signed debt orders onto his order book.  When a debt order is filled on his platform, Bob is paid out a fee stipulated in the signed debt order.</p>
+</blockquote>
+<h3>Contracts</h3>
+<ol>
+<li><strong>Debt Kernel</strong></li>
+</ol>
+<p>The debt kernel is a simple smart contract that governs all business logic associated with minting non-fungible debt tokens, maintaining mappings between debt tokens and their associated term contracts, routing repayments from debtors to creditors, and routing fees to underwriters and relayers.  These mechanisms are easier to define within the context of the debt lifecycle, and are extensively elaborated on in the below specification.</p>
+<ol start="2">
+<li><strong>Terms Contract(s)</strong></li>
+</ol>
+<p>Terms contracts are Ethereum smart contracts that are the means by which debtors and creditors agree upon a common, deterministically defined set of repayment terms.  By extension, terms contracts expose a standard interface of methods for both registering debtor repayments, and programmatically querying the repayment status of the debt asset during and after the loan’s term.  A single terms contract can be reused for any number of debt agreements that adhere to its repayment terms – for instance, a terms contract defining a simple compounded interest repayment scheme can be committed to by any number of debtors and creditors. The exact interface for this is defined within the specification below.</p>
+<p><em>Note: An alternative scheme for committing to loan terms would be to commit to a standardized schema of plaintext loan terms (a la Ricardian contracts<sup id="a5"><a href="#f5">5</a></sup>) on chain and assess loan repayment off-chain in client applications.  We deliberately opt not to pursue this scheme for several reasons.  Primarily, explicitly defining a universal schema for debt terms inherently limits the range of debt asset types that can be issued in the protocol, while a generic interface for terms contracts opens the door for an infinite array of debt term arrangements.  Moreover, committing to a terms contract on-chain removes any ambiguity from the evaluation of a loan’s repayment status – the contract is a single, programmatic, and immutable source of truth that is queryable by both contracts and clients.  Finally, having an on-chain provider of repayment status greatly simplifies the mechanisms by which on-chain collateralized debt agreements can be structured and collected on in cases of default.</em></p>
+<ol start="3">
+<li><strong>The 0x Protocol Smart Contracts</strong></li>
+</ol>
+<p>Dharma protocol heavily leverages the 0x protocol – a specification of its mechanics and component contracts can be found in the <a href="https://0xproject.com/pdfs/0x_white_paper.pdf">0x Whitepaper</a>.</p>
+<h1>Specification</h1>
+<h2>Overview</h2>
+<p>The entire debt issuance process occurs synchronously in one on-chain transaction, when a signed debt order message is submitted to the Debt Kernel contract.  If the message is valid as per the below specification, the following happen in one transaction:</p>
+<ol>
+<li>The debtor’s adherence to the chosen terms contract and the underwriter’s prediction of default likelihood are committed to on-chain.</li>
+<li>A non-fungible, non-divisible debt token is minted to the debtor and mapped to the above commitment.</li>
+<li>The debt token is swapped with the principle token amount from the creditor(s) via execution of a 0x Broadcast Order.</li>
+</ol>
+<p>This process is detailed below.  First, we formalize the the format of data packets in the protocol.</p>
+<h2>Message Types</h2>
+<p>Communications between the different agents and keepers in the protocol are comprised of data packets that fall into three types: <strong>Debt Orders</strong>, <strong>0x Broadcast Orders</strong>, and <strong>Debt Issuance Commitments</strong>.</p>
+<h3>Debt Orders</h3>
+<p>Debt orders are data packets listed by relayers that are the fundamental primitive of Dharma protocol – submitting a valid debt order to the Debt Kernel triggers the issuance of a debt token and its swap with the requested principal amount.</p>
+<p>In a debt order, either the creditor or debtor acts as the “market maker”.  Intuitively, if the debtor is acting as a market maker, the creditor “fills” the order by submitting it to the Debt Kernel, and vice versa if the creditor is acting as a maker.  The tradeoffs between these two approaches are elaborated on further on under <a href="#process">Process</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>debtIssuanceCommitment</code></td>
+<td><code>string</code></td>
+<td>The debt issuance commitment associated with the debt order.</td>
+</tr>
+<tr>
+<td><code>zeroExOrder</code></td>
+<td><code>string</code></td>
+<td>0x Broadcast Order associated with the debt order.</td>
+</tr>
+<tr>
+<td><code>relayer</code></td>
+<td><code>address</code></td>
+<td>Address of the relayer listing the given debt order.</td>
+</tr>
+<tr>
+<td><code>relayerFee</code></td>
+<td><code>uint256</code></td>
+<td>Total units of ZRX token the relayer will be paid out by the debt kernel when the debtor-creditor relationship is finalized.</td>
+</tr>
+<tr>
+<td><code>debtorSignature</code></td>
+<td><code>(uint8,bytes32,bytes32)</code></td>
+<td>Debtor’s ECDSA signature of the above arguments.</td>
+</tr>
+<tr>
+<td><code>makerSignature</code></td>
+<td><code>(uint8,bytes32,bytes32)</code></td>
+<td>Market maker’s ECDSA signature of the above arguments.</td>
+</tr>
+<tr>
+<td><code>relayerSignature</code></td>
+<td><code>(uint8,bytes32,bytes32)</code></td>
+<td>Relayer’s ECDSA signature of the above arguments.</td>
+</tr>
+</tbody>
+</table>
+<h3>Debt Issuance Commitments</h3>
+<p>A debt issuance commitment is a data packet constructed and signed by both the debtor and underwriter that indicates their desire to mint a non-fungible debt token, where that debt token is to be immutably associated with a pairing <code>(TC, P)</code>, <code>TC</code> being the address of a deployed terms contract adhering to the Terms Contract Interface (see below) and <code>P</code> representing the set of parameters ingested by the contract at <code>TC</code>.  Moreover, the underwriter commits to a value <code>R</code> representing the underwriter’s assessment of the average likelihood that the debtor will repay any given unit-of-value he is expected to, as defined by <code>(TC, P)</code>.  The underwriter also commits to a fee value she expects to receive in compensation for attesting to the debtor’s creditworthiness.</p>
+<p>A sample schema for a debt issuance commitment follows:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>version</code></td>
+<td><code>address</code></td>
+<td>Address of the debt kernel contract.  When protocol upgrades occur, this address will be updated.</td>
+</tr>
+<tr>
+<td><code>debtor</code></td>
+<td><code>address</code></td>
+<td>Address of the debtor wishing to mint a non-fungible debt token.</td>
+</tr>
+<tr>
+<td><code>underwriter</code></td>
+<td><code>address</code></td>
+<td>Address of the underwriter wishing to attest to the rating of this debt asset.</td>
+</tr>
+<tr>
+<td><code>underwriterFee</code></td>
+<td><code>uint256</code></td>
+<td>Total units of ZRX token the underwriter will be paid out by the debt kernel when the debtor-creditor relationship is finalized.</td>
+</tr>
+<tr>
+<td><code>termsContract</code></td>
+<td><code>address</code></td>
+<td>Address of the Terms Contract Interface adherent smart contract that defines the repayment terms of the debt.</td>
+</tr>
+<tr>
+<td><code>termsContractParameters</code></td>
+<td><code>string</code></td>
+<td>Data packet of parameters ingested by the Terms Contract to commit to specific values relevant to the repayment terms (e.g. principal, interest rate, etc.)</td>
+</tr>
+<tr>
+<td><code>underwriterRiskRating</code></td>
+<td><code>uint32</code></td>
+<td>The underwriter’s assessment of the average likelihood that any given unit-of-value the debtor is expected to pay will actually be repaid.  Must be a value between 0 and 1, encoded as an unsigned integer understood to have 9 decimal points (i.e. a 50% likelihood would be represented as <code>500000000</code>)</td>
+</tr>
+<tr>
+<td><code>debtorSignature</code></td>
+<td><code>(uint8,bytes32,bytes32)</code></td>
+<td>Debtor’s ECDSA signature of the above arguments</td>
+</tr>
+<tr>
+<td><code>underwriterSignature</code></td>
+<td><code>(uint8,bytes32,bytes32)</code></td>
+<td>Underwriter’s ECDSA signature of the above arguments</td>
+</tr>
+</tbody>
+</table>
+<p>A debt issuance commitment is only considered valid if both the debtor and underwriter signatures are valid with respect to the entire remaining data packet.</p>
+<h3>0x Broadcast Orders</h3>
+<p>We will not delve into the specifics of how the 0x protocol functions, but, rather, enumerate what a 0x Broadcast Order would look like in the context of Dharma protocol:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>version</code></td>
+<td><code>address</code></td>
+<td>Address of the 0x Exchange smart contract.</td>
+</tr>
+<tr>
+<td><code>maker</code></td>
+<td><code>address</code></td>
+<td>Address of the maker (<em>i.e. either the debtor or creditor</em>)</td>
+</tr>
+<tr>
+<td><code>tokenA</code></td>
+<td><code>address</code></td>
+<td>If debtor is maker, address of the Debt Kernel contract.  If creditor is maker, address of an ERC20 Token contract.</td>
+</tr>
+<tr>
+<td><code>tokenB</code></td>
+<td><code>address</code></td>
+<td>If debtor is taker, address of the Debt Kernel contract. If creditor is taker, address of an ERC20 Token contract</td>
+</tr>
+<tr>
+<td><code>valueA</code></td>
+<td><code>uint256</code></td>
+<td>If debtor is maker, this value is hard-coded to 1. If creditor is maker, this value represents the debt’s principle, in units of tokenA.</td>
+</tr>
+<tr>
+<td><code>valueB</code></td>
+<td><code>uint256</code></td>
+<td>If debtor is taker, this value is hard-coded to 1. If creditor is taker, this value represents the debt’s principle, in units of tokenB.</td>
+</tr>
+<tr>
+<td><code>expiration</code></td>
+<td><code>uint256</code></td>
+<td>Time at which the order expires (seconds since unix epoch).</td>
+</tr>
+<tr>
+<td><code>feeRecipient</code></td>
+<td><code>address</code></td>
+<td>Address of the Debt Kernel contract</td>
+</tr>
+<tr>
+<td><code>feeA</code></td>
+<td><code>uint256</code></td>
+<td>Total units of ZRX token paid by the Maker (either the debtor or creditor) to the Debt Kernel contract.</td>
+</tr>
+<tr>
+<td><code>feeB</code></td>
+<td><code>uint256</code></td>
+<td>Total units of ZRX token paid by the Taker (either the debtor or creditor) to the Debt Kernel contract.</td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td><code>uint8</code></td>
+<td>ECDSA signature of the above arguments.</td>
+</tr>
+<tr>
+<td><code>r</code></td>
+<td><code>bytes32</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td><code>bytes32</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Debt Issuance Process</h2>
+<p>There are similar two processes by which debt assets can be issued and swapped in Dharma protocol – one in which the debtor is acting as the market maker, and one in which the creditor is acting as the market maker.  We will refer to these two processes as <strong>Debtor-Maker Orders</strong> and <strong>Creditor-Maker Orders</strong>, respectively.</p>
+<h3>Debtor-Maker Orders</h3>
+<p><img src="https://s3-us-west-2.amazonaws.com/dharma-assets/DebtorMakerProcess.png?versionId=null" alt=""></p>
+<p>The following steps correspond to the circled numbers in the above diagram:</p>
+<ol>
+<li>Debtor requests loan from an underwriter.</li>
+<li>Debt Order Handshake (described in detail further) occurs between the debtor, underwriter, and relayer(s), resulting in the relayer listing a valid, complete debt order in which the debtor is the market maker in the included 0x Broadcast order.</li>
+<li>Creditor evaluates the terms of the Debt Order on a relayer’s order book.</li>
+<li>Creditor submits the debt order to the Debt Kernel contract.</li>
+<li>Debt Kernel issues the debtor a non-fungible, non-divisible token representing the debtor’s commitment to the terms contract and associated parameters.</li>
+<li>Debt Kernel fills the order associated with the Debt Order using the 0x Exchange Contract.</li>
+<li>The 0x Exchange Contract swaps the debtor’s newly minted debt token with the creditor’s principle amount and the loan term begins.</li>
+<li>The Debt Kernel, having received ZRX tokens as a fee recipient on the executed 0x Broadcast Order, transfers the underwriter her allotment of the fee, as defined by the Debt Issuance Commitment in the Debt Order.</li>
+<li>The Debt Kernel transfers the relayer his allotment of the fee, as defined by the Debt Order.</li>
+</ol>
+<p>The Debtor-Maker scheme is advantageous for scenarios in which there are many potential creditors, and the debtor does not care to control the precise moment at which the debt is eventually issued.  For most use cases, the Debtor-Maker scheme would likely be most efficient.</p>
+<h3>Creditor-Maker Orders</h3>
+<p><img src="https://s3-us-west-2.amazonaws.com/dharma-assets/CreditorMakerProcess.png" alt=""></p>
+<p>The following steps correspond to the circled numbers in the above diagram:</p>
+<ol>
+<li>Debtor requests loan from an underwriter.</li>
+<li>The Debt Order Handshake process is <strong>initiated, but not completed</strong> – resulting in the relayer listing a signed Debt Issuance Commitment alongside the requested principle amount, but <strong>not</strong> a complete, valid Debt Order.</li>
+<li>Creditor evaluates the terms of the Debt Issuance Commitment and requested principle on a relayer’s order book.</li>
+<li>Creditor creates and signs a 0x Broadcast Order in which the principle amount will be exchanged for the eventual token to be issued by the Debt Kernel.  Creditor then creates a Debt Order using the signed Debt Issuance Commitment, the relayer’s stated fee schedule, and the newly created 0x Broadcast Order, and includes his ECDSA signature of the Debt Order.</li>
+<li>The creditor submits his signed, incomplete Debt Order to the relayer, and the Debt Order Handshake process is completed when the relayer signs the Debt Order and forwards it to the debtor.</li>
+<li>The Debtor submits the signed, complete Debt Order to the Debt Kernel contract.</li>
+<li>Debt Kernel issues the debtor a non-fungible, non-divisible token representing the debtor’s commitment to the terms contract and associated parameters.</li>
+<li>Debt Kernel fills the order associated with the Debt Order using the 0x Exchange Contract.</li>
+<li>The 0x Exchange Contract swaps the debtor’s newly minted debt token with the creditor’s principle amount and the loan term begins.</li>
+<li>The Debt Kernel, having received ZRX tokens as a fee recipient on the executed 0x Broadcast Order, transfers the underwriter her allotment of the fee, as defined by the Debt Issuance Commitment in the Debt Order.</li>
+<li>The Debt Kernel transfers the relayer his allotment of the fee, as defined by the Debt Order.</li>
+</ol>
+<p>The Creditor-Maker scheme is advantageous for scenarios in which the debtor wants to synchronously borrow tokens as part of another, broader transaction.  For instance, if a smart contract requires a user pay a certain amount of storage-specific tokens (e.g. FileCoin, Storj, etc.) in order to make use of it, the user could include a valid, signed Debt Order obtained through the above scheme as an argument to the smart contract function call.  The smart contract could then submit the order on the debtor’s behalf to the Debt Kernel, synchronously lending the debtor the necessary storage tokens and then debiting them to the smart contract in one transaction.  This greatly reduces the friction around executing transactions in virtually any context on borrowed credit.</p>
+<h3>Debt Order Handshake</h3>
+<p>The Debt Order Handshake is formalized in two varieties – the first in the context of a Debtor-Maker Issuance Process and the latter in the context of a Creditor-Maker Issuance Process.</p>
+<h4>Handshake (Debtor-Maker)</h4>
+<p><img src="https://s3-us-west-2.amazonaws.com/dharma-assets/DebtOrderHandshake-DebtorMaker.png" alt=""></p>
+<ol>
+<li>Debtor requests an underwritten debt from a given underwriter, enumerating his desired loan terms (i.e. principle, term length).</li>
+<li>Underwriter assesses the debtor’s default risk using her proprietary risk models, constructs a debt issuance commitment with her desired fee stipulation and ECDSA signature included, and sends it to the Debtor.</li>
+<li>If the debt issuance commitment is in line with the debtor’s desired terms, the Debtor completes the debt issuance commitment by adding his ECDSA signature to the message.  The Debtor then constructs a signed 0x Broadcast Order exchanging the to-be-issued debt token for the desired principle amount, and forwards the signed debt issuance commitment and signed 0x Broadcast Order to the relayer (or, alternatively, to the underwriter, who in turn forwards the message to the relayer).</li>
+<li>The relayer uses the debtor’s signed debt issuance commitment and signed 0x Broadcast order to construct a Debt Order with the relayer’s stipulated fee included, attaches his ECDSA signature to the debt order, and sends the incomplete Debt Order to the Debtor for approval.</li>
+<li>The debtor completes the Debt Order by providing both the Debtor and Maker signatures, and sends the completed Debt Order to the relayer.</li>
+<li>The relayer lists the completed Debt Order on their order book.</li>
+<li>A creditor fills the completed Debt Order by submitting it to the Debt Kernel contract.</li>
+</ol>
+<h4>Handshake (Creditor-Maker)</h4>
+<p><img src="https://s3-us-west-2.amazonaws.com/dharma-assets/DebtOrderHandshake-CreditorMaker.png" alt=""></p>
+<ol>
+<li>Debtor requests an underwritten debt from a given underwriter, enumerating his desired loan terms (i.e. principle, term length).</li>
+<li>Underwriter assesses the debtor’s default risk using her proprietary risk models, constructs a debt issuance commitment with her desired fee stipulation and ECDSA signature included, and sends it to the Debtor.</li>
+<li>If the debt issuance commitment is in line with the debtor’s desired terms, the Debtor completes the debt issuance commitment by adding his ECDSA signature to the message.  The Debtor then forwards the signed debt issuance commitment to the relayer (or, alternatively, to the underwriter, who in turn forwards the message to the relayer).</li>
+<li>The relayer constructs an incomplete Debt Order using the given debt issuance commitment, stipulating their desired relayer fee, and lists the incomplete Debt Order on their order book.</li>
+<li>A creditor wishing to bid for the Debt Order constructs a signed 0x Broadcast Order exchanging the to-be-issued debt token for the desired principle amount, adds his signed 0x Broadcast Order to the Debt Order, and attaches his ECDSA signature of the Debt Order in his capacity as the market maker.  The creditor then submits the incomplete Debt Order to the Relayer.</li>
+<li>The relayer completes Debt Order by attaching his ECDSA signature in his capacity as the relayer, and forwards the incomplete Debt Order to the Debtor (or, alternatively, to the underwriter, who in turn forwards the message to the Debtor)</li>
+<li>If the debtor determines that the attached 0x Broadcast Order will transfer him the requested principle amount, the debtor completes the Debt Order by attaching the final ECDSA signature in his capacity as the Debtor.</li>
+<li>The debtor submits the completed Debt Order to the Debt Kernel contract.</li>
+</ol>
+<h2>Debt Repayment Process</h2>
+<h2>Footnotes</h2>
+<p><b id="f1">1</b> I emphasize <em>equity-like</em> insofar as protocol tokens are, in theory, <strong>not</strong> equity, but, in terms of their risk profile and the class of speculative interest they attract, behave exactly like equity.<a href="#a1">↩</a></p>
+<p><b id="f2">2</b> Warren, Will, and Amir Bandeali. “0x: An Open Protocol for Decentralized Exchange on the Ethereum Blockchain.” <a href="Https://0xproject.Com">Https://0xproject.Com</a>, <a href="http://0xproject.com/pdfs/0x_white_paper.pdf">0xproject.com/pdfs/0x_white_paper.pdf</a>.<a href="#a2">↩</a></p>
+<p><b id="f3">3</b> Zurrer, Ryan. “Keepers - Workers That Maintain Blockchain Networks.” Medium, Medium, 5 Aug. 2017, <a href="http://medium.com/@rzurrer/keepers-workers-that-maintain-blockchain-networks-a40182615b66">medium.com/@rzurrer/keepers-workers-that-maintain-blockchain-networks-a40182615b66</a>.<a href="#a3">↩</a></p>
+<p><b id="f4">4</b> In previous versions of this white paper, these entities were referred to as Risk Assessment Attesters, or RAAs.  We’ve moved away from this terminology, given that ‘underwriters’ are more intuitively digestible as a broad class.<a href="#a4">↩</a></p>
+<p><b id="f5">5</b> Grigg, Ian. “The Ricardian Contract.” <a href="http://Iang.org">Iang.org</a>, 2000, <a href="http://iang.org/papers/ricardian_contract.html">iang.org/papers/ricardian_contract.html</a><a href="#a5">↩</a></p></body>
+</html>
