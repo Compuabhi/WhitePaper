@@ -264,19 +264,34 @@ When a debtor wishes to make a repayment, they do the following:
 We require that any Debt issued via Dharma protocol commit to a smart contract, referred to as a Terms Contract.  The purpose of the Terms Contract is to provide an immutable and programmatically queryable source-of-truth revealing the repayment status of the debt.  This allows us to empirically and unambiguously both define the terms repayment scheme in the Debt Issuance process and evaluate the debt's repayment status during the debt's lifecycle both on and off-chain.  The interface of required functionality is as follows:
 
 ```javascript
-contract TermsContract {
+interface TermsContract {
   /**
-   * [registerRepayment description]
+   * When called, the registerRepayment function records the debtor's repayment, as well as any auxiliary metadata needed by the contract to determine ex post facto the value repaid (e.g. current USD exchange rate)  
+   * @param  {address} debtor The address of the debtor.
+   * @param  {string} termsParameters The parameter string committed to in the debt's issuance
+   * @param  {uint} unitsOfRepayment The units-of-value repaid in the transaction.
+   * @param  {address} tokenAddress The address of the token with which the repayment transaction was executed.
+   */
+  function registerRepayment(address debtor, string termsParameters, uint unitsOfRepayment, address tokenAddress);
+
+  /**
+   * Returns the cumulative units-of-value expected to be repaid by any given blockNumber and a given token address.  Note this is not a constant function -- this value can vary on basis of any number of conditions (e.g. interest rates can be renegotiated if repayments are delinquent).  Moreover, there can be any number of tokens with which repayment is expected.
+   * @param  {address} debtor The address of the debtor.
+   * @param  {string} termsParameters  The parameter string committed to in the debt's issuance.
+   * @param  {uint} blockNumber  The block number for which repayment expectation is being queried.
+   * @param  {address} tokenAddress  The address of the token with which the repayment transaction is expected.
+   * @return {uint} The cumulative units-of-value expected to be repaid by the time the given blockNumber lapses, in units of the given token.
+   */
+  function getExpectedRepaymentValue(address debtor, string termsParameters, uint blockNumber, address tokenAddress) returns (uint);
+
+  /**
+   * [getValueRepaid description]
    * @param  {[type]} address [description]
    * @param  {[type]} string  [description]
    * @param  {[type]} uint    [description]
    * @return {[type]}         [description]
    */
-  function registerRepayment(address debtor, string termsParameters, uint unitsOfRepayment);
-
-  function getExpectedRepaymentValue(address debtor, string termsParameters, uint blockNumber);
-
-  function getValueRepaid(address debtor, string termsParameters)
+  function getValueRepaid(address debtor, string termsParameters, uint blockNumber) returns (uint);
 }
 ```
 
