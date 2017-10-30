@@ -266,34 +266,50 @@ We require that any Debt issued via Dharma protocol commit to a smart contract, 
 ```javascript
 interface TermsContract {
   /**
-   * When called, the registerRepayment function records the debtor's repayment, as well as any auxiliary metadata needed by the contract to determine ex post facto the value repaid (e.g. current USD exchange rate)  
+   * When called, the registerRepayment function records the debtor's
+   * repayment, as well as any auxiliary metadata needed by the contract
+   * to determine ex post facto the value repaid (e.g. current USD
+   * exchange rate)  
    * @param  {address} debtor The address of the debtor.
    * @param  {string} termsParameters The parameter string committed to in the debt's issuance
    * @param  {uint} unitsOfRepayment The units-of-value repaid in the transaction.
    * @param  {address} tokenAddress The address of the token with which the repayment transaction was executed.
    */
-  function registerRepayment(address debtor, string termsParameters, uint unitsOfRepayment, address tokenAddress);
+  function registerRepayment(address debtor, string termsParameters, uint unitsOfRepayment, address tokenAddress) {}
 
   /**
-   * Returns the cumulative units-of-value expected to be repaid by any given blockNumber and a given token address.  Note this is not a constant function -- this value can vary on basis of any number of conditions (e.g. interest rates can be renegotiated if repayments are delinquent).  Moreover, there can be any number of tokens with which repayment is expected.
+   * Returns the cumulative units-of-value expected to be repaid by any
+   * given blockNumber.  Note this is not a
+   * constant function -- this value can vary on basis of any number of
+   * conditions (e.g. interest rates can be renegotiated if repayments are
+   * delinquent).
    * @param  {address} debtor The address of the debtor.
-   * @param  {string} termsParameters  The parameter string committed to in the debt's issuance.
-   * @param  {uint} blockNumber  The block number for which repayment expectation is being queried.
-   * @param  {address} tokenAddress  The address of the token with which the repayment transaction is expected.
-   * @return {uint} The cumulative units-of-value expected to be repaid by the time the given blockNumber lapses, in units of the given token.
+   * @param  {string} termsParameters  The parameter string committed to
+   *   in the debt's issuance.
+   * @param  {uint} blockNumber  The block number for which repayment
+   *   expectation is being queried.
+   * @return {uint} The cumulative units-of-value expected to be repaid
+   *   by the time the given blockNumber lapses.
    */
-  function getExpectedRepaymentValue(address debtor, string termsParameters, uint blockNumber, address tokenAddress) returns (uint);
+  function getExpectedRepaymentValue(address debtor, string termsParameters, uint blockNumber, address tokenAddress) returns (uint) {}
 
   /**
-   * [getValueRepaid description]
-   * @param  {[type]} address [description]
-   * @param  {[type]} string  [description]
-   * @param  {[type]} uint    [description]
-   * @return {[type]}         [description]
+   * Returns the cumulative units-of-value repaid by the point at which a
+   * a given blockNumber has lapsed.
+   * @param  {address} debtor The address of the debtor.
+   * @param  {string} termsParameters  The parameter string committed to
+   *   in the debt's issuance.
+   * @param  {uint} blockNumber  The block number for which repayment
+   *   value is being queried.
+   * @return {uint} The cumulative units-of-value repaid
+   *   by the time the given blockNumber lapsed.
    */
-  function getValueRepaid(address debtor, string termsParameters, uint blockNumber) returns (uint);
+  function getValueRepaid(address debtor, string termsParameters, uint blockNumber) returns (uint) {}
 }
 ```
+
+Note that in the `getExpectedRepaymentValue` and `getValueRepaid` functions, repayments are defined abstractly in terms of 'units-of-value'.  The units by which repayments are measured are intentionally left undefined -- this gives debt issuers the flexibility to, say, denominate the expected repayment values in fiat currencies whilst executing the actual transactions in tokens.
+
 
 ## Footnotes
 <b id="f1">1</b> I emphasize _equity-like_ insofar as protocol tokens are, in theory, **not** equity, but, in terms of their risk profile and the class of speculative interest they attract, behave exactly like equity.[↩](#a1)
