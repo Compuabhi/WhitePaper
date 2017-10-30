@@ -291,7 +291,7 @@ interface TermsContract {
    * @return {uint} The cumulative units-of-value expected to be repaid
    *   by the time the given blockNumber lapses.
    */
-  function getExpectedRepaymentValue(address debtor, string termsParameters, uint blockNumber, address tokenAddress) returns (uint) {}
+  function getExpectedRepaymentValue(address debtor, string termsParameters, uint blockNumber) returns (uint) {}
 
   /**
    * Returns the cumulative units-of-value repaid by the point at which a
