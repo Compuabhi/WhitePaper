@@ -329,6 +329,25 @@ $$ F _ \beta=\frac{(1+\beta^2)pr}{\beta^2p + r} $$
 
 **It is crucial to emphasize that this is NOT a trustless, all-encompassing metric by which we evaluate an underwriter's performance -- fraudulent underwriters can game this metric in a variety of manners (see [Attacks](#attacks))**.  Rather, this is an empirical signal by which good-faith, trusted underwriters can be transparently evaluated.  The metric is a valuable performance signal for the market _only_ insofar as the underwriter is a trusted actor.
 
+## Use Cases
+
+Debt is a massively varied asset class, and, in theory, virtually any type of debt agreement could be issued and underwritten via Dharma protocol.  An underwriter of _any_ class of fiat debt could port their back office onto Dharma protocol by acting as both the debtor and underwriter in every transaction, converting principle payments into fiat on receipt, transferring the fiat and accepting fiat repayments from borrowers, thus obfuscating the on-chain nature of the loan funding process away entirely from the end user.  We think that, eventually, this will provide an attractive alternative route for online lenders seeking debt capital.
+
+In the short term, however, the compelling use cases for on-chain debt issuance will be those that are uniquely enabled or augmented by an on-chain implementation.  We highlight a few of those below.
+
+### Initial Debt Offerings / Tokenized SAFTs
+Putting together an ICO is a surprisingly expensive endeavor, and projects in the space are beginning to raise larger and larger pre-ICO rounds in order to finance their eventual crowd-sale.  This has led to the creation of the SAFT<sup id="a6">[6](#f6)</sup>: a legal instrument which effectively functions like a convertible debt agreement -- an investor contributes `$X` and, in the event of a future utility token-sale, expects to receive `$X` worth of tokens at a discounted price.
+
+We propose that the pre-ICO financing of a cryptographic protocol can be issued, crowd-funded, and tokenized via Dharma protocol, under terms and conditions that are infinitely more flexible than status quo pre-sales.
+
+In the most simple of examples, the debt terms contract can stipulate a vanilla discounted pre-sale agreement akin to a SAFT -- the principle lent would be the `$X` raised, and the repayment expected would be the `$X` worth of the eventually deployed utility tokens at a discounted price. This would be preferable to doing a vanilla token pre-sale insofar as protocol developers would not be required to deploy the eventual token's contract in advance of the pre-sale, saving protocol developers the cost & hassle associated with deploying a secure token crowdfund contract.
+
+### Decentralized Margin Lending (TODO)
+
+### On-Chain Receivables (TODO)
+
+
+
 ## Footnotes
 <b id="f1">1</b> I emphasize _equity-like_ insofar as protocol tokens are, in theory, **not** equity, but, in terms of their risk profile and the class of speculative interest they attract, behave exactly like equity.[↩](#a1)
 
@@ -339,3 +358,5 @@ $$ F _ \beta=\frac{(1+\beta^2)pr}{\beta^2p + r} $$
 <b id="f4">4</b> In previous versions of this white paper, these entities were referred to as Risk Assessment Attesters, or RAAs.  We've moved away from this terminology, given that 'underwriters' are more intuitively digestible as a broad class.[↩](#a4)
 
 <b id="f5">5</b> Grigg, Ian. “The Ricardian Contract.” Iang.org, 2000, iang.org/papers/ricardian_contract.html[↩](#a5)
+
+<b id="f6">6</b>Batiz-Benet, Juan, et al. “The SAFT Project: Toward a Compliant Token Sale Framework.” saftproject.com/static/SAFT-Project-Whitepaper.pdf.[↩](#a6)
