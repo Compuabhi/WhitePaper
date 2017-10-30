@@ -159,6 +159,7 @@ A sample schema for a debt issuance commitment follows:
 | `underwriterRiskRating`   | `uint32`                  | The underwriter's assessment of the average likelihood that any given unit-of-value the debtor is expected to pay will actually be repaid.  Must be a value between 0 and 1, encoded as an unsigned integer understood to have 9 decimal points (i.e. a 50% likelihood would be represented as `500000000`) |
 | `debtorSignature`         | `(uint8,bytes32,bytes32)` | Debtor's ECDSA signature of the above arguments                                                                                                                                                                                                                                                             |
 | `underwriterSignature`    | `(uint8,bytes32,bytes32)` | Underwriter's ECDSA signature of the above arguments                                                                                                                                                                                                                                                        |
+
 A debt issuance commitment is only considered valid if both the debtor and underwriter signatures are valid with respect to the entire remaining data packet.
 
 ### 0x Broadcast Orders
