@@ -5,7 +5,10 @@ Version 2.0.0
 Nadav Hollander -- <a href='mailto:nadav@dharma.io'>nadav@dharma.io</a></br>
 <i>B.S. in Computer Science -- Stanford University ‘17</i></br>
 
-## Abstract  (TODO)
+## Abstract
+
+Dharma is a protocol that enables decentralized origination, underwriting, issuance, and administration of tokenized debt assets in a highly generic and unopinionated construction.  The protocol aims to build a common informational interface by which exchanges, brokerages, and traders can reasonably price a tokenized debt's default risk without having to rely on a singular centralized data broker. The Dharma debt issuance scheme leverages two classes of utility players that compete in distinct marketplaces for compensatory fees -- underwriters and relayers.  The former are trusted originators and assessors of debtor 
+default risk, and the latter facilitate the funding and issuance of debts in a trustless manner.  Both can be empirically evaluated on historical asset performance, and, as such, markets have lucid signals with which to evaluate the default risk of tokenized debts attested to by any given underwriter or relayer.  The Dharma debt issuance process only requires one on-chain transaction to execute, and heavily leverages the 0x Protocol as a fundamental primitive.
 
 ## Table Of Contents
 
