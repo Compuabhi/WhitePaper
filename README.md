@@ -374,7 +374,9 @@ We contend that, in practicality, participating in most systemic side deal match
 2. **Commit**: Creditors commit to filling an order by submitting the invalid and incomplete Debt Order to a purpose-built smart contract that acts as an intermediary cog in the transaction.  Additionally, creditors grant the smart contract token transfer allowances<sup id="a8">[8](#f8)</sup> equivalent to the token allowances necessary to fill the Debt Order's attached 0x Broadcast Order.
 3. **Execute**: The relayer executes the issuance and swap by submitting the complete, valid Debt Order to the aforementioned contract.  The contract then verifies that all fields in the submitted Debt Order match their counterparts in the creditor's committed, incomplete Debt Order (with the exception of fields containing the debtor's address), and then, in sequence, transfers itself the requisite principle tokens from the creditor, submits the complete Debt Order to the debt kernel contract in its capacity as an intermediary creditor, and finally transfers the debt token it newly possesses to the creditor.  If the submitted debt order is invalid or mismatched with the Debt Order committed to by the creditor, the contract throws and the creditor maintains ownership of her tokens.
 
-Thus, if all else fails, relayers can leverage the above Commit-Execute construction in order give creditors a means of filling obfuscated Debt Orders in a trustless manner.
+Thus, relayers can leverage the above Commit-Execute construction in order give creditors a means of filling obfuscated Debt Orders in a trustless manner, if circumstances necessitate its usage.
+
+
 
 
 
