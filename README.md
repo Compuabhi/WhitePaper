@@ -5,7 +5,7 @@ Version 2.0.0
 Nadav Hollander -- <a href='mailto:nadav@dharma.io'>nadav@dharma.io</a></br>
 <i>B.S. in Computer Science -- Stanford University ‘17</i></br>
 
-## Abstract
+## Abstract  (TODO)
 
 ## Table Of Contents
 
@@ -31,9 +31,8 @@ Nadav Hollander -- <a href='mailto:nadav@dharma.io'>nadav@dharma.io</a></br>
    5. [Defaults and Collections](#defaults-and-collections)
 4. [Use Cases](#use-cases)
 5. [Attacks & Limitations](#attacks-and-limitations)
-6. [Summary](#summary)
-7. [FAQ](#faq)
-8. [Appendix](#appendix)
+6. [Summary](#summary) (TODO)
+7. [FAQ](#faq) (TODO)
 
 ## Introduction
 > Claim: An under-recognized advantage of blockchains is that they necessarily engender the creation
@@ -376,8 +375,22 @@ We contend that, in practicality, participating in most systemic side deal match
 
 Thus, relayers can leverage the above Commit-Execute construction in order give creditors a means of filling obfuscated Debt Orders in a trustless manner, if circumstances necessitate its usage.
 
+### Debt Token Non-Fungibility
 
+As of yet, Ethereum lacks a common standard for non-fungible tokens a la the ERC20 standard. As such, 0x Protocol only supports swaps of ERC20 compliant tokens.  Thus, in order to issue non-fungible debt tokens, we are either relegated to deploying individual smart contracts for every issued debt, or shoehorning the ERC20 standard onto a non-fungible context.  Given that the former is prohibitively expensive in terms of gas costs, we opt for the latter.
 
+As a result, debt tokens issued under Dharma Protocol have several limitations:
+
+1. A debt token can only have one owner address.
+2. An address can be associated with at most one debt token, meaning new addresses must be generated for every debtor / creditor transaction.
+3. Debt tokens are non-divisible -- they can only be transferred as a whole.
+4. We disallow usage of the `approve` ERC20 method in the Debt Kernel contract as a precaution against a class of attacks debtors can execute against creditors in Creditor-Maker debt issuance transactions.
+
+This is limiting insofar as it significantly hampers the ability of debt tokens issued under Dharma Protocol to be traded in secondary markets where token divisibility is crucial (i.e. bond markets) or where the underlying infrastructure heavily leverages trustless atomic swaps (i.e. 0x).
+
+However, it _is_ fairly easy to sidestep these issues, albeit at higher gas costs, by treating a proxy smart contract as the Creditor in any given debt issuance.  In turn, the proxy smart contract would function as an ERC20 token representing fractional interests in the singular debt token it holds, giving creditors a fungible debt proxy token that could be easily swapped and traded on exchanges.
+
+**In the short-term, we address this limitations by allowing creditors to optionally use a proxy smart contract as a stand-in Creditor.  We are, however, actively involved in discussions around formalizing a non-fungible token standard for Ethereum, and are working closely with the 0x team to ensure future upgrades to the 0x protocol include non-fungible token support.  Once these pre-requisites are satisfied, we will be in a position to upgrade Dharma protocol in a manner such that non-fungible debt tokens are divisible and atomically swappable**
 
 
 ## Footnotes
